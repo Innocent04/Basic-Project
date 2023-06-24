@@ -1,0 +1,61 @@
+<Function>:
+    Screen:
+        name: 'first'
+        MDTopAppBar:
+            title: 'QR Code Generator'
+            font_style: 'H5'
+            pos_hint: {"top":1}
+            specific_text_color: 0,0,0,1
+            elevation: 0
+        BoxLayout:
+            size_hint_y: .1
+            padding: "10dp"
+            pos_hint: {'center_y':.75}
+            MDTextField:
+                id: link_text
+                hint_text: "Enter your URL to generate QR code...."
+
+        BoxLayout:
+            size_hint_y: .1
+            padding: "10dp"
+            pos_hint: {'center_y':.65}
+            MDTextField:
+                id: image_name
+                hint_text: "Enter your image name here...."
+
+        MDRectangleFlatButton:
+            text: 'generate'
+            on_release: root.generate_qr_code(root)
+            pos_hint: {'center_x':.3, 'center_y':.1}
+
+
+        MDRectangleFlatButton:
+            text: 'view image'
+            pos_hint: {'center_x':.7, 'center_y':.1}
+            on_release: root.current = root.view_image(root)
+
+    Screen:
+        name: 'image'
+
+        BoxLayout:
+            size_hint_y: .6
+            pos_hint: {'center_y':.5}
+            padding: 10
+            Image:
+                id: img_
+        MDLabel:
+            text: 'QR Code'
+            font_style: 'H4'
+            pos_hint: {'center_y': .9}
+            halign: 'center'
+
+        MDRectangleFlatButton:
+            text: 'make another'
+            pos_hint: {'center_x':.5, 'center_y':.1}
+            on_release: root.make_another(root)
+
+
+
+    
+
+        
